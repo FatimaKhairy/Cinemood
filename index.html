@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cinemood</title>
+</head>
+<body>
+    <img src="./images/happy.png" alt="CineMood" id="cinemood-logo">
+
+    <input type="text" id="searchInput" placeholder="Search movies ...">
+
+    <div class="filters">
+        <label for="sortMovies">Sort by rating:</label>
+        <select id="sortMovies">
+            <option value="default">Default Order</option>
+            <option value="rating">Highest Rating</option>
+        </select>
+    </div>
+    
+
+    <div id="moviesContainer"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

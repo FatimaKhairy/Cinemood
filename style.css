@@ -1,0 +1,468 @@
+/* ===== Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap');
+
+/* ===== General ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 0 50px;
+    font-family: 'Nunito Sans', 'Vazirmatn', sans-serif;
+    color: #293b5a;
+    background:
+        radial-gradient(ellipse at 15% 15%, #f9e3ee 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 25%, #dceaff 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 90%, #e8e1ff 0%, transparent 45%),
+        linear-gradient(135deg, #eef3fb, #f9f5fa);
+    background-attachment: fixed;
+}
+
+/* ===== Main title ===== */
+.mainTitle {
+    text-align: center;
+    font-size: clamp(2.2rem, 5vw, 3.3rem);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin: 15px auto 30px;
+    color: #34476a;
+}
+
+/* ===== Search ===== */
+#searchInput {
+    display: block;
+    width: min(760px, 88%);
+    min-height: 58px;
+    margin: 0 auto 28px;
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 35px rgba(79, 100, 150, 0.10);
+    font: inherit;
+    font-size: 1rem;
+    color: #293b5a;
+    outline: none;
+    transition: box-shadow 0.25s, border-color 0.25s;
+}
+
+#searchInput::placeholder {
+    color: #8795ae;
+}
+
+#searchInput:focus {
+    border-color: #a5a1ef;
+    box-shadow: 0 0 0 4px rgba(139, 132, 235, 0.13);
+}
+
+/* ===== Sorting, genre and mood controls ===== */
+/* Put your controls inside a wrapper with class="filters"
+   if you already have one. */
+.filters {
+    width: min(1100px, 92%);
+    margin: 0 auto 35px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+select {
+    min-width: 155px;
+    max-width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.65);
+    color: #3e5070;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Mood buttons */
+.filters button,
+.mood-buttons button {
+    padding: 11px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.63);
+    color: #475b7b;
+    font: inherit;
+    font-weight: 700;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.filters button:hover,
+.mood-buttons button:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+    box-shadow: 0 7px 18px rgba(91, 104, 153, 0.13);
+}
+
+/* ===== Movie grid: 4 per row ===== */
+#moviesContainer,
+#favoritesContainer {
+    width: min(1180px, 92%);
+    margin: 25px auto 45px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* ===== Glass movie cards ===== */
+.movie-card {
+    min-width: 0;
+    overflow: hidden;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.48);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(76, 94, 139, 0.10);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 17px 35px rgba(76, 94, 139, 0.17);
+}
+
+/* Larger, complete posters */
+.movie-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    background: rgba(225, 231, 244, 0.5);
+    border-radius: 15px;
+    margin: 0 auto 15px;
+}
+
+/* English title */
+.movie-card h3 {
+    margin: 10px 0 7px;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    font-weight: 800;
+    color: #30466a;
+    overflow-wrap: anywhere;
+}
+
+/* Persian title — different color */
+.movie-card .persian-title {
+    color: #8a68c9;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.8;
+    margin: 6px 0;
+}
+/* Year and rating */
+.movie-card p {
+    color: #71809b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* ===== Add to Favorites button ===== */
+.movie-card button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px 10px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #8e83e8, #b18be4);
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+    box-shadow: 0 5px 14px rgba(132, 116, 218, 0.22);
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.movie-card button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    #moviesContainer,
+    #favoritesContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 18px;
+    }
+
+    h1 {
+        margin: 15px auto 24px;
+        letter-spacing: -0.5px;
+    }
+
+    #searchInput {
+        width: 92%;
+        min-height: 54px;
+        margin-bottom: 20px;
+    }
+
+    .filters {
+        width: 92%;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    select {
+        flex: 1 1 140px;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .filters button,
+    .mood-buttons button {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+    }
+
+    #moviesContainer,
+    #favoritesContainer {
+        width: 92%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .movie-card {
+        padding: 8px;
+        border-radius: 17px;
+    }
+
+    .movie-card img {
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+
+    .movie-card h3 {
+        font-size: 0.92rem;
+    }
+
+    .movie-card .persian-title {
+        font-size: 0.85rem;
+    }
+
+    .movie-card button {
+        padding: 10px 6px;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 360px) {
+    #moviesContainer,
+    #favoritesContainer {
+        gap: 10px;
+    }
+
+    .movie-card h3 {
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== Filter animation ===== */
+@keyframes movieEnter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie-card {
+    animation: movieEnter 0.4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===== CENTERED FILTERS ===== */
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    width: min(1000px, 92%);
+    margin: 0 auto 30px;
+}
+
+.filters select,
+#sortMovies {
+    min-width: 175px;
+    max-width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 5px 18px rgba(70, 89, 130, 0.08);
+    color: #405577;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+}
+
+/* ===== BEAUTIFUL MOOD BUTTONS ===== */
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    margin: 12px auto 0;
+}
+
+.mood-buttons button,
+.filters button {
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.65);
+    color: #596b91;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 800;
+    box-shadow: 0 5px 16px rgba(85, 100, 145, 0.08);
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.mood-buttons button:hover,
+.filters button:hover {
+    background: linear-gradient(135deg, #e5e2ff, #fce6f1);
+    color: #514ba1;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(117, 105, 190, 0.16);
+}
+
+/* ===== MOVIE CARD ANIMATION ===== */
+@keyframes movieEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+        filter: blur(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+#moviesContainer .movie-card {
+    cursor: pointer;
+    animation: movieEnter 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+#moviesContainer .movie-card:hover {
+    transform: translateY(-7px) scale(1.015);
+    box-shadow: 0 18px 38px rgba(76, 94, 139, 0.18);
+}
+
+#moviesContainer .movie-card img {
+    transition: transform 0.35s ease;
+}
+
+#moviesContainer .movie-card:hover img {
+    transform: scale(1.025);
+}
+
+/* ===== REMOVE FROM FAVORITES BUTTON ===== */
+#favoritesContainer button {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #f4dce9, #e8e2ff);
+    color: #74517f;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(134, 105, 161, 0.10);
+    transition: all 0.25s ease;
+}
+
+#favoritesContainer button:hover {
+    background: linear-gradient(135deg, #efc9df, #d9d3ff);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(134, 105, 161, 0.17);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .filters {
+        width: 92%;
+        gap: 10px;
+    }
+
+    .filters select,
+    #sortMovies {
+        flex: 1 1 140px;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .mood-buttons {
+        gap: 8px;
+    }
+
+    .mood-buttons button,
+    .filters button {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    #moviesContainer .movie-card,
+    #moviesContainer .movie-card img,
+    #favoritesContainer button {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+#cinemood-logo{
+    display: block;
+    width: 50%;
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
