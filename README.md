@@ -1,5 +1,6 @@
 
 Name: Fatima Khairy
+
 Challange: Web 3 - Interactive Movie Finder
 
 Features and process: 
