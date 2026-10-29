@@ -11,11 +11,11 @@ function saveFavorites(){
 
 const logo = document.querySelector("#cinemood-logo")
 const logoMoods = [
-    "./images/happy.png",
-    "./images/sad.png",
-    "./images/neutral.png",
-    "./images/angry.png",
-    "./images/surprise.png"
+    "./happy.png",
+    "./sad.png",
+    "./neutral.png",
+    "./angry.png",
+    "./surprise.png"
 ]
 
 let currentMood = 0
